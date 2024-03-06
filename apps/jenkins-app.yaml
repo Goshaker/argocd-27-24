@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    chart: jenkins-app
+    helm:
+      parameters:
+      - name: ingress.inghost
+        value: jenkins-app-argo.k8s-7.sa
+    repoURL: https://goshaker.github.io/helm-27-24/
+    targetRevision: 0.3.0
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
