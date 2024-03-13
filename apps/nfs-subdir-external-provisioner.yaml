@@ -1,12 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  creationTimestamp: "2024-03-13T20:00:39Z"
-  generation: 13
   name: nfs-subdir-external-provisioner
   namespace: argocd
-  resourceVersion: "5054706"
-  uid: b79dec1c-3c4e-4105-9510-19b9a7acecf9
 spec:
   destination:
     namespace: default
@@ -25,4 +21,7 @@ spec:
     repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner/
     targetRevision: 4.0.18
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
