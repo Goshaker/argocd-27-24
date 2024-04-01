@@ -92,7 +92,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: zabbix.k8s-17.sa
+    - host: zabbix.k8s-7.sa
       http:
         paths:
           - path: /
