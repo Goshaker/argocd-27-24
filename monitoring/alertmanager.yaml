@@ -35,7 +35,6 @@ data:
               {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
               {{ end }}
             {{ end }}
-
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -106,9 +105,8 @@ kind: Ingress
 metadata:
   name: ingress-alertmanager
   namespace: monitoring
-  annotations:
-    kubernetes.io/ingress.class: nginx
 spec:
+  ingressClassName: nginx
   rules:
     - host: alertmanager.k8s-7.sa
       http:
