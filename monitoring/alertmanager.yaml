@@ -22,7 +22,7 @@ data:
     receivers:
     - name: 'slack-notifications'
       slack_configs:
-      - api_url: 'https://hooks.slack.com/services/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'
+      - api_url: 'https://hooks.slack.com/services/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'
         channel: '#monitor_ga'
         send_resolved: true
         title: |-
